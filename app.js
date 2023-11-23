@@ -122,7 +122,7 @@ function handleMessage(senderPsid, receivedMessage) {
   } else if (receivedMessage.attachments) {
 
     // Get the URL of the message attachment
-    let attachmentUrl = 'https://browser.agenty.com/try?api=/api/screenshot&options={%22url%22:%22https://istomorrowhartal.com/%22,%22device%22:%22mobile%22,%22options%22:{%22type%22:%22png%22,%22fullPage%22:false}}';
+    let attachmentUrl = 'https://browser.agenty.com/try?api=/api/screenshot&options={%22url%22:%22https://istomorrowhartal.com/%22,%22device%22:%22mobile%22,%22options%22:{%22type%22:%22png%22,%22fullPage%22:false,%22clip%22:{%22height%22:250,%22width%22:400,%22x%22:0,%22y%22:200}}}';
     response = {
       'attachment': {
         'type': 'template',
