@@ -116,9 +116,22 @@ function handleMessage(senderPsid, receivedMessage) {
   if (receivedMessage.text) {
     // Create the payload for a basic text message, which
     // will be added to the body of your request to the Send API
+    // Get the URL of the message attachment
+    let attachmentUrl = 'https://browser.agenty.com/try?api=/api/screenshot&options={%22url%22:%22https://istomorrowhartal.com/%22,%22device%22:%22mobile%22,%22options%22:{%22type%22:%22png%22,%22fullPage%22:false,%22clip%22:{%22height%22:250,%22width%22:400,%22x%22:0,%22y%22:200}}}';
     response = {
-      'text': `You sent the message: '${receivedMessage.text}'. Now send me an attachment!`
+      'attachment': {
+        'type': 'template',
+        'payload': {
+          'template_type': 'generic',
+          'elements': [{
+            
+            'image_url': attachmentUrl
+          }]
+        }
+      }
     };
+  
+
   } else if (receivedMessage.attachments) {
 
     // Get the URL of the message attachment
