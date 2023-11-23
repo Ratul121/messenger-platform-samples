@@ -104,6 +104,10 @@ app.post('/webhook', (req, res) => {
   }
 });
 
+
+app.get('/pup')
+
+
 // Handles messages events
 function handleMessage(senderPsid, receivedMessage) {
   let response;
@@ -118,28 +122,15 @@ function handleMessage(senderPsid, receivedMessage) {
   } else if (receivedMessage.attachments) {
 
     // Get the URL of the message attachment
-    let attachmentUrl = receivedMessage.attachments[0].payload.url;
+    let attachmentUrl = 'https://browser.agenty.com/try?api=/api/screenshot&options={%22url%22:%22https://istomorrowhartal.com/%22,%22device%22:%22mobile%22,%22options%22:{%22type%22:%22png%22,%22fullPage%22:false}}';
     response = {
       'attachment': {
         'type': 'template',
         'payload': {
           'template_type': 'generic',
           'elements': [{
-            'title': 'Is this the right picture?',
-            'subtitle': 'Tap a button to answer.',
-            'image_url': attachmentUrl,
-            'buttons': [
-              {
-                'type': 'postback',
-                'title': 'Yes!',
-                'payload': 'yes',
-              },
-              {
-                'type': 'postback',
-                'title': 'No!',
-                'payload': 'no',
-              }
-            ],
+            
+            'image_url': attachmentUrl
           }]
         }
       }
